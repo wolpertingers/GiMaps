@@ -9,7 +9,7 @@ def approx(rw, zoom_lvls, lat):
     output = ""
     for i,z in enumerate(zoom_lvls):
         if i != 0:
-            output += ','
+            output += ';'
         output += f"{z}:{lw[i]:.2f}" 
     
     return output

@@ -1,0 +1,15 @@
+// test ruleset for playing around
+
+properties
+	map-background-color : #ffffff
+	map-background-opacity : 1
+
+features
+	autobahn : @isOneOf(highway, motorway, motorway_link, trunk, trunk_link)
+
+rules
+	target : autobahn
+		define
+			line-color : #000000
+			line-width : 10:0.44;11:0.87;12:1.74;13:3.48;14:6.96;15:13.93;16:27.85;17:55.71;18:111.42;19:222.84;20:445.67
+		draw : line
