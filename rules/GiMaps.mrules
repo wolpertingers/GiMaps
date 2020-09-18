@@ -1,3 +1,22 @@
+// Ruleset for Maperitive.
+// Authors: Roman Ludwig & Ingo Kuba
+// Notes on Math:	To ensure that all lines are drawn with the correct width
+//					(meaning "to scale"), we use the following formula to compute
+//					the (horizontal) distance per pixel:
+//						s_px = s_tile / 256 = C * cos(latitude) / 2^(zoomlvl+8)
+//					where C is the circumference of the earth and has the value
+//						C = 40 075 016 m
+//					Maperitive does not allow one to define a custom function for
+// 					defining the linewidth as function of the zoom level, but we
+//					can make piecewise linear approximations. So e.g. for an object
+//					that is 10 m wide in reality, the linewidth in px would be 
+//						lw = 10m / s_px = 10m * 2^(zoomlvl+8) / (C * cos(latitude))
+//					and its piecewise approximation from zoom level 10 to 20 
+//					as we would write it here in Maperitive is then
+//						10:0.1,11:0.2,12:0.4,13:0.8,14:1.6,15:3.19,16:6.38,17:12.76,18:25.52,19:51.05,20:102.1
+//					let's see if that works.
+
+
 properties
 	map-background-color : #222222
 	map-background-opacity : 1
