@@ -18,9 +18,9 @@
 
 
 properties
-	map-background-color : #222222
+	map-background-color : {bg}
 	map-background-opacity : 1
-	map-sea-color : #ffffff
+	map-sea-color : {water}
 
 features
 	// points
@@ -39,7 +39,7 @@ features
 		field : landuse=farmland OR landuse=orchard OR landuse=farmyard OR landuse=vineyard
 		grass : @isOneOf(landuse, village_green, greenfield, meadow, grass, cemetery) OR @isOneOf(leisure, park, garden) OR amenity=grave_yard OR @isOneOf(natural, scrub, heath, grassland, fell)
 		residential : landuse=residential
-		industrial : landuse=industrial OR landuse=retail OR landuse=commercial
+		commercial : landuse=industrial OR landuse=retail OR landuse=commercial
 		// building accommodation : building=yes OR @isOneOf(building, apartments, bungalow, cabin, detached, dormitory, farm, ger, hotel, house, houseboat, residential, semidetached_house, static_caravan, terrace)
 		// building commercial : @isOneOf(building, commercial, industrial, kiosk, office, retail, supermarket, warehouse)
 		// building religious : @isOneOf(building, cathedral, chapel, church, mosque, religious, shrine, synagogue, temple)
@@ -58,53 +58,53 @@ rules
 // lines
 	target : railway
 		define
-			line-color : #111111
+			line-color : {railway}
 			line-width : 1
 		draw : line
 
 	target : autobahn
 		define
-			line-color : #ffffff
+			line-color : {roads}
 			line-width : 7
 		draw : line
 
 	target : road
 		define
-			line-color : #ffffff
+			line-color : {roads}
 			line-width : 4
 		draw : line
 
 	target : street
 		define
-			line-color : #ffffff
+			line-color : {roads}
 			line-width : 2
 		draw : line
 
 	target : path
 		define
-			line-color : #ffffff
+			line-color : {roads}
 			line-width : 0.5
 		draw : line
 
 	target : river
 		define
-			line-color : #888888
+			line-color : {water}
 			line-width : 2
 		draw : line
 
 
 // areas
-	target : building*
+	target : building
 		define
-			fill-color : #444444
-			line-color : #444444
+			fill-color : {building_fill}
+			line-color : {building_outline}
 			line-width : 0
 		draw : fill
 
 	target : water
 		define
-			fill-color : #888888
-			line-color : #888888
+			fill-color : {water}
+			line-color : {water}
 			line-width : 0
 		draw : fill
 
@@ -117,35 +117,35 @@ rules
 
 	target : field
 		define
-			fill-color : #555555
-			line-color : #555555
+			fill-color : {forest}
+			line-color : {forest}
 			line-width : 0
 		draw : fill
 
 	target : grass
 		define
-			fill-color : #777777
-			line-color : #777777
+			fill-color : {grass}
+			line-color : {grass}
 			line-width : 0
 		draw : fill
 
 	target : airport
 		define
-			fill-color : #ff0000
-			line-color : #ff0000
+			fill-color : {airport}
+			line-color : {airport}
 			line-width : 0
 		draw : fill
 
 	target : residential
 		define
-			fill-color : #888888
-			line-color : #888888
+			fill-color : {residential}
+			line-color : {residential}
 			line-width : 0
 		draw : fill
 
-	target : industrial
+	target : commercial
 		define
-			fill-color : #999999
-			line-color : #999999
+			fill-color : {commercial}
+			line-color : {commercial}
 			line-width : 0
 		draw : fill
