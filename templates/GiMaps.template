@@ -59,37 +59,51 @@ rules
 	target : railway
 		define
 			line-color : {railway}
-			line-width : 1
+			line-join : round
+			line-width : 13:0.35;14:0.70;15:1.39;16:2.79;17:5.57;18:11.14
 		draw : line
 
 	target : autobahn
 		define
 			line-color : {roads}
-			line-width : 7
+			line-join : round
+		for : lanes=2
+			define
+				line-width : 13:1.39;14:2.79;15:5.57;16:11.14;17:22.28;18:44.57
+		elsefor : lanes=3
+			define
+				line-width : 13:2.09;14:4.18;15:8.36;16:16.71;17:33.43;18:66.85
+		else
+			define
+				line-width : 13:0.70;14:1.39;15:2.79;16:5.57;17:11.14;18:22.28
 		draw : line
 
 	target : road
 		define
 			line-color : {roads}
-			line-width : 4
+			line-join : round
+			line-width : 13:1.04;14:2.09;15:4.18;16:8.36;17:16.71;18:33.43
 		draw : line
 
 	target : street
 		define
 			line-color : {roads}
-			line-width : 2
+			line-join : round
+			line-width : 13:0.52;14:1.04;15:2.09;16:4.18;17:8.36;18:16.71
 		draw : line
 
 	target : path
 		define
-			line-color : {roads}
-			line-width : 0.5
+			line-color : {path}
+			line-join : round
+			line-width : 13:0.44;14:0.87;15:1.74;16:3.48;17:6.96;18:13.93
 		draw : line
 
 	target : river
 		define
 			line-color : {water}
-			line-width : 2
+			line-join : round
+			line-width : 13:0.52;14:1.04;15:2.09;16:4.18;17:8.36;18:16.71
 		draw : line
 
 
@@ -98,7 +112,7 @@ rules
 		define
 			fill-color : {building_fill}
 			line-color : {building_outline}
-			line-width : 0
+			line-width : 13:0.17;14:0.35;15:0.70;16:1.39;17:2.79;18:5.57
 		draw : fill
 
 	target : water
