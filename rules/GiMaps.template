@@ -18,7 +18,7 @@
 
 
 properties
-	map-background-color : #222222
+	map-background-color : #{}
 	map-background-opacity : 1
 	map-sea-color : #ffffff
 

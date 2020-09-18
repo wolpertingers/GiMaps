@@ -1,0 +1,2 @@
+blabla {v1} blabla, Ingo stinkt nach {v2}. ACHTUNG ZEILENUMBRUCH!
+Und hier kommt auch schon die nächste {v3}
