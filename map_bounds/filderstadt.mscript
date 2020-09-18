@@ -1,3 +1,4 @@
 download-osm-overpass bounds=9.17,48.62,9.27,48.7
-use-ruleset location=rules/GiMaps.mrules
+use-ruleset location=GiMaps/rules/GiMaps.mrules
 apply-ruleset
+export-svg file=GiMaps/vectors/filderstadt.svg zoom=14 compatibility=Inkscape
