@@ -30,7 +30,7 @@ if __name__ == "__main__":
     variable_dict = json.load(json_file)
     
     output_path = Path(args.output_path).resolve()
-    rules_output_str = rules_template_str.format(**variable_dict["colors"])
+    rules_output_str = rules_template_str.format(**variable_dict[f"{args.name}"]["colors"])
     rules_output_file = open(output_path/f"Rules/{args.name}.mrules", 'w+')
     rules_output_file.write(rules_output_str)
     
