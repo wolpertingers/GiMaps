@@ -1,17 +1,65 @@
 {
-    "bg": "#192733",
-    "water": "#E2AB03",
-    
-    "railway": "#F38D00",
-    "roads": "#ffffff",
-    "path": "#6d9198",
+    "colors": 
+    {
+        "bg": "#192733",
+        "water": "#E2AB03",
+        
+        "railway": "#F38D00",
+        "roads": "#ffffff",
+        "path": "#6d9198",
 
-    "building_fill": "#294054",
-    "building_outline": "#587793",
-    "forest": "#0A0F14",
-    "fields": "#141F28",
-    "grass": "#1B2A38",
-    "airport": "#F36400",
-    "residential": "#131B25",
-    "commercial": "#111922"
+        "building_fill": "#294054",
+        "building_outline": "#587793",
+        "forest": "#0A0E13",
+        "fields": "#141F28",
+        "grass": "#1B2A38",
+        "airport": "#F36400",
+        "residential": "#131B25",
+        "commercial": "#111922"
+    }, 
+
+    "default":
+    {
+        "min_lat": 48,
+        "max_lat": 48.1,
+        "min_lon": 9,
+        "max_lon": 9.1,
+        "name": "default"
+    },
+
+    "koeln":
+    {
+        "min_lat": 50.879,
+        "max_lat": 51.0265,
+        "min_lon": 6.86,
+        "max_lon": 7.054,
+        "name": "koeln"
+    },
+
+    "ulm":
+    {
+        "min_lat": 48.35,
+        "max_lat": 48.433,
+        "min_lon": 9.938,
+        "max_lon": 10.032,
+        "name": "ulm"
+    },
+
+    "filderstadt":
+    {
+        "min_lat": 48.62,
+        "max_lat": 48.7,
+        "min_lon": 9.17,
+        "max_lon": 9.27,
+        "name": "filderstadt"
+    },
+
+    "erlangen":
+    {
+        "min_lat": 49.553,
+        "max_lat": 49.612,
+        "min_lon": 10.947,
+        "max_lon": 11.023,
+        "name": "erlangen"
+    }
 }
