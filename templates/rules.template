@@ -36,7 +36,7 @@ features
 	areas
 		water : natural=water OR waterway=riverbank OR landuse=reservoir OR landuse=basin OR waterway=dock
 		forest : landuse=forest OR natural=wood
-		field : landuse=farmland OR landuse=orchard OR landuse=farmyard OR landuse=vineyard
+		field : @isOneOf(landuse, farmland, orchard, farmyard, vineyard)
 		grass : @isOneOf(landuse, village_green, greenfield, meadow, grass, cemetery) OR @isOneOf(leisure, park, garden) OR amenity=grave_yard OR @isOneOf(natural, scrub, heath, grassland, fell)
 		residential : landuse=residential
 		commercial : landuse=industrial OR landuse=retail OR landuse=commercial
@@ -152,15 +152,15 @@ rules
 
 	target : forest
 		define
-			fill-color : #222222
-			line-color : #222222
+			fill-color : {forest}
+			line-color : {forest}
 			line-width : 0
 		draw : fill
 
 	target : field
 		define
-			fill-color : {forest}
-			line-color : {forest}
+			fill-color : {fields}
+			line-color : {fields}
 			line-width : 0
 		draw : fill
 
