@@ -1,0 +1,68 @@
+{
+    "locations":
+    {
+        "koeln":
+        {
+            "min_lat": 50.879,
+            "max_lat": 51.0265,
+            "min_lon": 6.86,
+            "max_lon": 7.054
+        },
+
+        "ulm":
+        {
+            "min_lat": 48.35,
+            "max_lat": 48.433,
+            "min_lon": 9.938,
+            "max_lon": 10.032
+        },
+
+        "erlangen":
+        {
+            "min_lat": 49.553,
+            "max_lat": 49.612,
+            "min_lon": 10.947,
+            "max_lon": 11.023
+        },
+
+        "filderstadt":
+        {
+            "min_lat": 48.62,
+            "max_lat": 48.7,
+            "min_lon": 9.17,
+            "max_lon": 9.27
+        }
+    },
+
+    "styles":
+    {
+        "navigator":
+        {
+            "bg": "#FDF6EE",
+            "water": "#9bcfbb",
+            
+            "railway": "#7a7a7a",
+            "roads": "#C7896F",
+            "path": "#C7896F",
+    
+            "building_fill": "#EEE0CA",
+            "building_outline": "#e7c7b1",
+            "forest": "#bfcdad",
+            "fields": "#FEF7EF",
+            "grass": "#DFE1D0",
+            "airport": "#ce9b55",
+            "residential": "#FEF7EF",
+            "commercial": "#FEF7EF"
+        },
+
+        "asphalt":
+        {
+
+        },
+
+        "sky":
+        {
+
+        }
+    }
+}

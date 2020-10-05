@@ -1,5 +1,5 @@
-download-osm-overpass bounds=9.938,48.35,10.032,48.433
-use-ruleset location=GiMaps/Rules/dark_blue.mrules
+load-source Maps/ulm.osm
+use-ruleset location=GiMaps/Rules/ulm.mrules
 apply-ruleset
 set-print-bounds-geo 9.938,48.35,10.032,48.433
 export-svg file=GiMaps/Vectors/ulm.svg zoom=14 compatibility=Inkscape
