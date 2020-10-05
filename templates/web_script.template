@@ -1,6 +1,6 @@
 download-osm-overpass bounds={min_lon},{min_lat},{max_lon},{max_lat}
 save-source Maps/{name}.osm
-use-ruleset location=GiMaps/Rules/{name}.mrules
+use-ruleset location=Rules/{name}.mrules
 apply-ruleset
 set-print-bounds-geo {min_lon},{min_lat},{max_lon},{max_lat}
-export-svg file=GiMaps/Vectors/{name}.svg zoom=14 compatibility=Inkscape
+export-svg file=output/{name}.svg zoom=14 compatibility=Inkscape

@@ -19,10 +19,10 @@ if __name__ == "__main__":
                         default=Path("./Templates").resolve())
     parser.add_argument("--map", metavar='-M', type=str, 
                         help="if path to directory of OSM data is provided, the script will not download via overpass.", 
-                        default=Path("./Maperitive/Maps").resolve())
+                        default="Maps")
     parser.add_argument("--out", metavar="-O", type=str, 
                         help="path to the output directory, default is the current one.", 
-                        default=Path("./Maperitive").resolve())
+                        default=Path("../Maperitive").resolve())
     
     # parsing the arguments
     args = parser.parse_args()
@@ -54,6 +54,6 @@ if __name__ == "__main__":
     
     # setting output for the Maperitive script and generating it based on the 
     # JSON and the respective template file
-    script_output_str = script_template_str.format(**variable_dict["locations"][f"{args.name}"], map_path=args.map)
+    script_output_str = script_template_str.format(**variable_dict["locations"][f"{args.name}"], map_path=args.map, name=f"{args.name}")
     script_output_file = open(output_path/f"Scripts/{args.name}.mscript", 'w+')
     script_output_file.write(script_output_str)

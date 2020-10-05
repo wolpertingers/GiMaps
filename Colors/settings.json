@@ -57,12 +57,59 @@
 
         "asphalt":
         {
-
+            "bg": "#2B3F4B",
+            "water": "#215871",
+            
+            "railway": "#99917C",
+            "roads": "#FFFFFF",
+            "path": "#FFFFFF",
+    
+            "building_fill": "#475B66",
+            "building_outline": "#677E8B",
+            "forest": "#21313A",
+            "fields": "#32454E",
+            "grass": "#32454E",
+            "airport": "#ce9b55",
+            "residential": "#2B3F4B",
+            "commercial": "#2B3F4B"  
         },
 
         "sky":
         {
+            "bg": "#D6DDE5",
+            "water": "#FFFFFF",
+            
+            "railway": "#7CBBC2",
+            "roads": "#3F5E7A",
+            "path": "#3F5E7A",
+    
+            "building_fill": "#A8B7C8",
+            "building_outline": "#5E80A6",
+            "forest": "#C5D0D5",
+            "fields": "#CFD8E0",
+            "grass": "#D6DDE5",
+            "airport": "#ce9b55",
+            "residential": "#D6DDE5",
+            "commercial": "#D6DDE5"  
+        },
 
+        "dark_blue": 
+        {
+            "bg": "#2a3215",
+            "water": "#E2AB03",
+            
+            "railway": "#F38D00",
+            "roads": "#ffffff",
+            "path": "#6d9198",
+    
+            "building_fill": "#294054",
+            "building_outline": "#587793",
+            "forest": "#0A0E13",
+            "fields": "#141F28",
+            "grass": "#1B2A38",
+            "airport": "#ffc31f",
+            "residential": "#131B25",
+            "commercial": "#111922"
         }
     }
 }
