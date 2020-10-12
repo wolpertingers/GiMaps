@@ -1,0 +1,193 @@
+// Ruleset for Maperitive.
+// Authors: Roman Ludwig & Ingo Kuba
+// Notes on Math:	To ensure that all lines are drawn with the correct width
+//					(meaning "to scale"), we use the following formula to compute
+//					the (horizontal) distance per pixel:
+//						s_px = s_tile / 256 = C * cos(latitude) / 2^(zoomlvl+8)
+//					where C is the circumference of the earth and has the value
+//						C = 40 075 016 m
+//					Maperitive does not allow one to define a custom function for
+// 					defining the linewidth as function of the zoom level, but we
+//					can make piecewise linear approximations. So e.g. for an object
+//					that is 10 m wide in reality, the linewidth in px would be 
+//						lw = 10m / s_px = 10m * 2^(zoomlvl+8) / (C * cos(latitude))
+//					and its piecewise approximation from zoom level 10 to 20 
+//					as we would write it here in Maperitive is then
+//						10:0.1,11:0.2,12:0.4,13:0.8,14:1.6,15:3.19,16:6.38,17:12.76,18:25.52,19:51.05,20:102.1
+//					let's see if that works.
+
+
+properties
+	map-background-color : #192733
+	map-background-opacity : 1
+	map-sea-color : #E2AB03
+
+features
+	// points
+	lines
+		river : @isOneOf(waterway, river, stream, ditch, canal, drain, dock)
+		railway : railway=rail OR railway=light_rail
+		autobahn : @isOneOf(highway, motorway, motorway_link, trunk, trunk_link)
+		road : @isOneOf(highway, primary, primary_link, secondary, tertiary)
+		street : @isOneOf(highway, unclassified, residential, living_street, service, road) OR (highway=track AND @isOneOf(tracktype, grade1, grade2)) OR (highway=pedestrian AND NOT (area=yes OR type=multipolygon))
+		path : @isOneOf(highway, footway, bridleway, steps, path) OR (highway=track AND @isOneOf(tracktype, grade3, grade4, grade5))
+		
+
+	areas
+		water : natural=water OR waterway=riverbank OR landuse=reservoir OR landuse=basin OR waterway=dock
+		forest : landuse=forest OR natural=wood
+		field : landuse=farmland OR landuse=orchard OR landuse=farmyard OR landuse=vineyard
+		grass : @isOneOf(landuse, village_green, greenfield, meadow, grass, cemetery) OR @isOneOf(leisure, park, garden) OR amenity=grave_yard OR @isOneOf(natural, scrub, heath, grassland, fell)
+		residential : landuse=residential
+		commercial : landuse=industrial OR landuse=retail OR landuse=commercial
+		// building accommodation : building=yes OR @isOneOf(building, apartments, bungalow, cabin, detached, dormitory, farm, ger, hotel, house, houseboat, residential, semidetached_house, static_caravan, terrace)
+		// building commercial : @isOneOf(building, commercial, industrial, kiosk, office, retail, supermarket, warehouse)
+		// building religious : @isOneOf(building, cathedral, chapel, church, mosque, religious, shrine, synagogue, temple)
+		// building civic : @isOneOf(building, civic, fire_station, government, hospital, kindergarten, public, school, toilets, train_station, transportation, university)
+		// building agricultural : @isOneOf(building, barn, conservatory, cowshed, farm_auxilliary, greenhouse, slurry_tank, stable, sty)
+		// building sports : @isOneOf(building, grandstand, pavillion, riding_hall, sports_hall, stadium)
+		// building storage : @isOneOf(building, hangar, hut, shed)
+		// building cars : @isOneOf(building, carport, garage, garages, parking)
+		// building power : @isOneOf(building, digester, service, transformer_tower, water_tower)
+		// building other : @isOneOf(building, bunker, bridge, gatehouse, roof, ruins, tree_house)
+		building : @isOneOf(building, yes, apartments, bungalow, cabin, detached, dormitory, farm, ger, hotel, house, houseboat, residential, semidetached_house, static_caravan, terrace, commercial, industrial, kiosk, office, retail, supermarket, warehouse, cathedral, chapel, church, mosque, religious, shrine, synagogue, temple, civic, fire_station, government, hospital, kindergarten, public, school, toilets, train_station, transportation, university, barn, conservatory, cowshed, farm_auxilliary, greenhouse, slurry_tank, stable, sty, grandstand, pavillion, riding_hall, sports_hall, stadium, hangar, hut, shed, carport, garage, garages, parking, digester, service, transformer_tower, water_tower, bunker, bridge, gatehouse, roof, ruins, tree_house)
+		airport : @isOneOf(aeroway, aerodrome, apron, helipad, heliport, runway, taxilane, taxiway, highway_strip)
+
+
+rules
+// lines
+	target : railway
+		for : tunnel=yes
+			define
+				line-style : dot
+		define
+			line-color : #F38D00
+			line-join : round
+			line-end-cap : round
+			line-start-cap : round
+			line-width : 13:0.35;14:0.70;15:1.39;16:2.79;17:5.57;18:11.14
+		draw : line
+
+	target : autobahn
+		for : tunnel=yes
+			define
+				line-style : dot
+		define
+			line-color : #ffffff
+			line-join : round
+			line-end-cap : round
+			line-start-cap : round
+		for : lanes=2
+			define
+				line-width : 13:1.39;14:2.79;15:5.57;16:11.14;17:22.28;18:44.57
+		elsefor : lanes=3
+			define
+				line-width : 13:2.09;14:4.18;15:8.36;16:16.71;17:33.43;18:66.85
+		else
+			define
+				line-width : 13:0.70;14:1.39;15:2.79;16:5.57;17:11.14;18:22.28
+		draw : line
+
+	target : road
+		for : tunnel=yes
+			define
+				line-style : dot
+		define
+			line-color : #ffffff
+			line-join : round
+			line-end-cap : round
+			line-start-cap : round
+			line-width : 13:1.04;14:2.09;15:4.18;16:8.36;17:16.71;18:33.43
+		draw : line
+
+	target : street
+		for : tunnel=yes
+			define
+				line-style : dot
+		define
+			line-color : #ffffff
+			line-join : round
+			line-end-cap : round
+			line-start-cap : round
+			line-width : 13:0.52;14:1.04;15:2.09;16:4.18;17:8.36;18:16.71
+		draw : line
+
+	target : path
+		for : tunnel=yes
+			define
+				line-style : dot
+		define
+			line-color : #ffffff
+			line-opacity : 0.1
+			line-join : round
+			line-end-cap : round
+			line-start-cap : round
+			line-width : 13:0.44;14:0.87;15:1.74;16:3.48;17:6.96;18:13.93
+		draw : line
+
+	target : river
+		define
+			line-color : #E2AB03
+			line-join : round
+			line-end-cap : round
+			line-start-cap : round
+			line-width : 13:0.52;14:1.04;15:2.09;16:4.18;17:8.36;18:16.71
+		draw : line
+
+
+// areas
+	target : building
+		define
+			fill-color : #294054
+			line-color : #587793
+			line-width : 13:0.17;14:0.35;15:0.70;16:1.39;17:2.79;18:5.57
+		draw : fill
+
+	target : water
+		define
+			fill-color : #E2AB03
+			line-color : #E2AB03
+			line-width : 0
+		draw : fill
+
+	target : forest
+		define
+			fill-color : #222222
+			line-color : #222222
+			line-width : 0
+		draw : fill
+
+	target : field
+		define
+			fill-color : #0A0F14
+			line-color : #0A0F14
+			line-width : 0
+		draw : fill
+
+	target : grass
+		define
+			fill-color : #1B2A38
+			line-color : #1B2A38
+			line-width : 0
+		draw : fill
+
+	target : airport
+		define
+			fill-color : #F36400
+			line-color : #F36400
+			line-width : 0
+		draw : fill
+
+	target : residential
+		define
+			fill-color : #131B25
+			line-color : #131B25
+			line-width : 0
+		draw : fill
+
+	target : commercial
+		define
+			fill-color : #111922
+			line-color : #111922
+			line-width : 0
+		draw : fill
