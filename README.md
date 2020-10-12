@@ -17,6 +17,4 @@ Maperitive /path/to/Scripts/your-city.mscript
 ```
 Note that this command will download all the data inside the geo bounds you have defined in the JSON file and save it to `./Maps/you-city.osm`. If you want to rerun the script but not download all the data again (the OSM servers are already overloaded sometimes) you can run the python program again with the `--download /path/to/you-city.osm` flag.
 
-> Note that the `--download` flag is currently useless. I'm working on it...
-
 Have fun!

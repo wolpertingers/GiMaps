@@ -60,7 +60,7 @@
             "bg": "#2B3F4B",
             "water": "#215871",
             
-            "railway": "#99917C",
+            "railway": "#6DA2BB",
             "roads": "#FFFFFF",
             "path": "#FFFFFF",
     
@@ -69,7 +69,7 @@
             "forest": "#21313A",
             "fields": "#32454E",
             "grass": "#32454E",
-            "airport": "#ce9b55",
+            "airport": "#6F97A4",
             "residential": "#2B3F4B",
             "commercial": "#2B3F4B"  
         },
@@ -79,7 +79,7 @@
             "bg": "#D6DDE5",
             "water": "#FFFFFF",
             
-            "railway": "#7CBBC2",
+            "railway": "#3A7894",
             "roads": "#3F5E7A",
             "path": "#3F5E7A",
     
@@ -88,7 +88,7 @@
             "forest": "#C5D0D5",
             "fields": "#CFD8E0",
             "grass": "#D6DDE5",
-            "airport": "#ce9b55",
+            "airport": "#6891BE",
             "residential": "#D6DDE5",
             "commercial": "#D6DDE5"  
         },
